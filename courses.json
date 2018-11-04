@@ -1,0 +1,31 @@
+
+{ "data" : {
+"1" : {"code":"CS6105", 
+"title":"VR",
+"Credit":5, 
+"Content":"Design of Interaction Environments, Emmersion in Virtual and Augmented Realities, Three Dimensional Geometry and Interactive Computer Graphics.", 
+"Assessment":{"CA":40,"exam":60},
+"link": "https://www.ucc.ie/admin/registrar/modules/descriptions/CS.html#CS6105"},
+
+"2" : {"code":"CS6113", "title":"Internet-based Applications",
+"Credit":5, "Content":"Programming in JavaScript",
+"Assessment":{"CA":40,"exam":60}, "link": "http://wgrothaus.ucc.ie/"},
+
+ "3" : {"code":"CS6114", "title":"Digital Video Compression and Delivery",
+ "Credit":5, "Content":"Develop understanding of the principles underlying the compression of video. Evaluation of state-of-the-art coding techniques, including compression algorithms and error resilience. Enhancement of the performance of existing systems for compression and delivery. Design of novel techniques and tools for compression and delivery.",
+ "Assessment":{"CA":40,"exam":60}, "link": "https://www.ucc.ie/admin/registrar/modules/descriptions/CS.html#CS6114"},
+
+
+ "4" : {"code":"CS6115", "title":"Human Computer Interaction",
+ "Credit":5, "Content":"Programming in JavaScript",
+ "Assessment":{"CA":40,"exam":60}, "link": "https://www.ucc.ie/admin/registrar/modules/descriptions/CS.html#CS6115"},
+
+ "5" : {"code":"CS6116", "title":" Mobile Multimedia",
+ "Credit":5, "Content":"Develop understanding of the novel digital media aspects of mobile, ubiquitous and pervasive computing systems. The tools and techniques for creating and delivering multimedia content on wirelessand 3G/4G networks. Acquire a range of skills for software development in mobile and ubiquitous computing using industry-standard tools.",
+ "Assessment":{"CA":40,"exam":60}, "link": "https://www.ucc.ie/admin/registrar/modules/descriptions/CS.html#CS6117"},
+
+ "6" : {"code":"CS6117", "title":"Audio Processing",
+ "Credit":5, "Content":"Develop understanding of the principles underlying the compression of audio. Evaluation of state-of-the-art coding techniques, including compression algorithms, error resilience, sound synthesis and music synthesis. Enhancement of the performance of existing systems for compression and delivery. Design of novel techniques and tools for compression and delivery.",
+ "Assessment":{"CA":40,"exam":60}, "link": "https://www.ucc.ie/admin/registrar/modules/descriptions/CS.html#CS6118"}
+
+} }

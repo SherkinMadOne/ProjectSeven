@@ -1,0 +1,88 @@
+<!doctype html>
+
+<html lang="en-UK">
+    <head>
+        <link rel="stylesheet" href="cmsstyle.css" />
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> https://cs1.ucc.ie/~km34/assignment2.html </title>
+     </head>
+    <body onload="changeContent('home.txt')">
+    	<script>
+    	
+			function changeContent(fileName){
+				
+				// This is for the delay
+				var seconds = window.prompt("No of milliseconds?", seconds);
+				fileName="delay.php?loc="+fileName+"?ms="+seconds;
+				
+				var contentBox=document.getElementById("content");
+				
+				// Check if file is there first
+				loadProp=new XMLHttpRequest();
+				loadProp.onreadystatechange = 
+				function (){
+					if (this.readyState < 4) {
+					
+ 						 displayMessage("Getting there...."); }
+ 					else {
+ 						if (this.status == 200) {
+     						contentBox.innerHTML = this.responseText;
+					 		displayMessage("Content loaded"); }
+
+    					
+    				else {
+						displayMessage(this.status + "  " +this.statusText);
+					}
+ 					}	
+ 					
+				};
+									
+				loadProp.open("GET", fileName, true);
+ 				loadProp.send();
+
+			}
+    	
+		function changeCSS(fileName){
+			var head = document.getElementsByTagName('head')[0];
+        	head.getElementsByTagName('link')[0].href=fileName;
+		}
+    	
+		function displayMessage(message){
+			var messagetBox=document.getElementById("messages");
+			messagetBox.innerHTML=message
+		}
+
+    	</script>
+        <header>
+
+        </header>
+        
+		<nav>
+			<img src="uccLogo.png" />
+			<button type="button" class="a" id="1" onclick="changeContent('home.txt')"> Home </button>
+			<button type="button" class="a" id="2" onclick="changeContent('studies.txt')">Studies </button>
+			<button type="button" class="a" id="3" onclick="changeContent('about.txt')"> About Me </button>
+			<button type="button" class="a" id="4" onclick="changeContent('links.txt')">Links </button>
+			
+		</nav>
+		<section id="content">
+
+		</section>
+		<form >
+			<button type="button" id="cmsstyle.css"  class="changeCSS" onclick="changeCSS('cmsstyle.css')" > 
+				Click to change stylesheet One
+			</button>
+			<button type="button" id="cmsstyle2.css" class="changeCSS"  onclick="changeCSS('cmsstyle2.css')"> 
+				Click to change stylesheet Two
+			</button>
+		</form>
+		<section id="messages">
+		</section>
+		
+		<footer>
+
+		</footer>
+    </body>
+</html>

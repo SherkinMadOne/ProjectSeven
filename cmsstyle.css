@@ -1,0 +1,98 @@
+body{
+ 	border-style : solid;
+	display : grid;
+	height :500px;
+}
+
+
+
+nav {
+	grid-row-start: 1;
+  	grid-row-end: 3;
+  	grid-column-start : 1;
+  	grid-column-end : 1;
+
+	border-style: groove;
+	border-color : yellow;
+
+	background : yellow;
+	margin : 15px;
+	margin-left : 10px;
+}
+
+img {
+	display : block;
+	border-style : groove;
+	margin : auto;
+}
+
+nav a {
+	font-size : 2em;
+	display : block;
+	border-style : none;
+	margin : 10px;
+	background : yellow;
+}
+
+section
+{ display : block;
+	grid-row-start: 1;
+  	grid-row-end: 3;
+  	grid-column-start : 2;
+  	grid-column-end : 5;
+	border-style:groove;
+	border-style : groove;
+	border-color : yellow;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	margin : 15px;
+	
+}
+
+
+form  {
+
+	display : block;
+	grid-column-start : 1;
+	grid-column-end :4;
+	grid-row-start : 6;
+	grid-row-end  :9;
+}
+
+
+#toggles {
+	display : block;
+	border : none;
+	height : 80px;
+	grid-row-start :4;
+	grid-row-end:6;
+	grid-column-start :3;
+	grid-column-end :6;
+}
+
+#messages {
+	height : 60px;
+	width : 575px;
+	grid-row-start :5;
+	grid-row-end:6;
+	grid-column-start : 1;
+	grid-column-end :6;
+	display : block;
+	border : dotted;
+	text-align:  center;
+	overflow : hidden;
+
+}
+nav .a {
+	text-align:  center;
+	font-size : 1em;
+	display : block;
+	border-style : none;
+	margin : 10px;
+	background : yellow;
+}
+
+button {
+
+	font-size : 1.5em;
+}

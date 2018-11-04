@@ -1,0 +1,56 @@
+#messages {
+
+/* This must be added to the grid */
+ 	border-style : solid;
+	display : grid;
+	height : 435px;
+}
+
+nav {
+	grid-row-start: 1;
+  	grid-row-end: 3;
+  	grid-column-start : 1;
+  	grid-column-end : 1;
+
+	border-style: groove;
+	border-color : yellow;
+
+	background : red;
+	margin : 15px;
+	margin-left : 10px;
+}
+
+img {
+	display : block;
+	border-style : groove;
+	margin : auto;
+}
+
+nav .a {
+	font-size : 2em;
+	display : block;
+	border-style : none;
+	margin : 10px;
+	background : yellow;
+}
+
+section
+{
+	grid-row-start: 1;
+  	grid-row-end: 3;
+  	grid-column-start : 2;
+  	grid-column-end : 5;
+	border-style:groove;
+	border-style : groove;
+	border-color : yellow;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	margin : 15px;
+	
+}
+
+form button {
+
+	width : 500px;
+	height :80px;
+}

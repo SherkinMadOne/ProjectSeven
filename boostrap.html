@@ -1,0 +1,155 @@
+<!doctype html>
+<!--WORKING ADDRESS : https://cs1.ucc.ie/~km34/boostrap.html -->
+<html lang="en-UK">
+    <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="cmsstyle.css" />
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title ></title>
+        <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+			
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     </head>
+    <body >
+    	<script>
+    	
+   	$(document).ready(function () { 
+    		
+    		cssSheet=true;
+    		cSS=false;
+    		
+    		// This is when the page is loaded
+		$.getJSON("home.json", function(result){
+				fullText=result.full;
+				abstractText=result.abstract;
+                $("#content").append(result.full);
+                $(document).attr("title", result.title);
+                toggle=true;});
+		
+		
+		  // This is the buttons in the nav bar
+		$(".a").click (function(e){
+		$.getJSON(e.target.id, function(result){
+				fullText=result.full;
+				abstractText=result.abstract;
+                $("#content").text(result.full);
+               $(document).attr("title", result.title);
+                toggle=false;
+          	      });
+			});
+			
+			
+			// This is the different text views
+		$("#toggleSwitch").click (function(e){			
+				if (toggle==false) {
+				 $("#content").text(fullText);	 
+				}
+				else {	
+				 $("#content").text(abstractText);			
+				}
+				 toggle=!toggle;
+			});
+			
+			// This changes the stylesheets
+			$("#changeCSS").click (function(){	
+			 cSS=!cSS;
+			if (cSS==true) {
+				$("link[rel=stylesheet]").attr({href : "cmsstyle2.css"});	 }
+			else {
+				$("link[rel=stylesheet]").attr({href : "cmsstyle.css"}); }
+					
+				});
+			
+			
+			// This changes the size of the font in the text box
+  		$("#cmsstyleOne").click (function(e){
+  		if (cssSheet==true) {
+			$("#content").css({"font-size": "200%"});		
+			}
+			else {
+			$("#content").css({"font-size": "100%"});
+			}
+			cssSheet=!cssSheet;
+			});
+
+
+	function writeMsg(text,level){	
+			$("#messages").text(text);
+			switch (level) {
+				case 0 :			
+					$("#messages").attr({"class":"alert alert-success"});
+					return;
+				case 1 :			
+					$("#messages").attr({"class":"alert alert-danger"});
+					return;
+				case 2 :			
+					$("#messages").attr({"class":"alert alert-warning"});
+					return;
+				default : 	
+					$("#messages").attr({"class":"alert alert-warning"});
+					return;
+					};
+					
+	}			
+
+		// The ajax functions
+		$( document ).ajaxSuccess(function(  ) { 
+  			writeMsg("Successful Request!",0);
+					});
+    	    	
+    	$( document ).ajaxError(function(event, xhr, opt ) {
+  			writeMsg("Error : " + xhr.status + " " + xhr.statusText,1);
+					});
+					
+		$( document ).ajaxStart(function( ) {	
+  			writeMsg("Loading.....",2);
+					});
+ 
+    	 });	
+    
+	$('.alert').alert();
+    	
+
+    	</script>
+        <header>
+
+        </header>
+        
+		<nav>
+			<img src="uccLogo.png" />
+			<button type="button" class="a" id="home.json"> Home </button>
+			<button type="button" class="a" id="studies.json">Studies </button>
+			<button type="button" class="a" id="about.json"> About Me </button>
+			<button type="button" class="a" id="links.json">Links </button>
+			
+		</nav>
+		<section id="content">
+
+		</section>
+		<section id="toggles">
+			<button type="button" id="cmsstyleOne" > 
+				Change font
+			</button>
+			<button type="button" id="toggleSwitch">
+				Toggle information
+			</button>
+		
+			<button type="button" id="changeCSS">
+				Change CSS 
+			</button>
+		</section>
+		<section id="messages" data-dismiss="alert" role="alert" aria-label="Close">
+		</section>
+		
+		<footer>
+
+		</footer>
+    </body>
+</html>
+

@@ -1,0 +1,3 @@
+[ "data" :
+{ "title" : "Information about UCC"
+"abstract" : " University College Cork, established in 1892, is based in the heart of Cork city.  Rated at ... in the world university rankings, it has been home to many alumini, such as George Boole."}]

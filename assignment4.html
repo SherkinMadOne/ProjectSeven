@@ -1,0 +1,125 @@
+<!doctype html>
+
+<html lang="en-UK">
+        <head>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+                      <meta charset="UTF-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title> MSc Interactive Media </title>
+                    <script
+                          src="https://code.jquery.com/jquery-3.3.1.min.js"
+                          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                          crossorigin="anonymous"></script>
+                        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                 </head>
+     
+     <body>
+     	<script>
+     	// This is when the page is loaded
+     	
+     		$(document).ready(function () { 
+     			var fullText="dfd";
+				$.getJSON("courses.json", function(data){
+				     var items = [];
+  				    $.each( data, function( key, val ) {	
+                          
+  				        $.each( val, function (key, addData) {items.push(addData);
+  				    });
+                  });
+ 				for (var i=0; i<items.length; i++)
+     		    {
+     			    $("#nav").append("<button id=\""+i+"\""+">"+items[i].code+"</button>")
+                     $("button").attr({"class":"a nav-link"});
+                           
+                 }
+                 $("#sectionOne").text("The "+items.length+" modules of MSC IM semester two");
+    
+                    // Events when you click a button
+ 					$(".a").click (function(e){
+             
+                         for (var i=0; i<items.length; i++)
+                        { console.log($("#"+i.toString()).attr('class'));
+                           if ($("#"+i.toString()).attr("class")==="btn btn-primary btn-xs")
+                           { 
+                             $("#"+i).attr({"class":"nav-link a"});}
+                             
+                             if (this.id===i.toString()){
+                             console.log("change"+i);
+                                $("#"+this.id).attr({"class":"btn btn-primary btn-xs"});}
+                        }
+                        $(document).attr("title",items[this.id].code+" : "+items[this.id].title);
+                        $("#sectionOne").text("").append("<h3> <a href=\""+items[this.id].link+"\">"+
+                        (items[this.id].title+ " : </a> </h3> <p>" + items[this.id].Content+"</p>"));
+                        $("#sectionTwo").text("").append("<p>Credits : " +items[this.id].Credit).
+                        append("</p> <p> Coursework :" +items[this.id].Assessment.CA +
+                        "</p><p> Assessment : " +items[this.id].Assessment.exam);
+          	      });
+			
+            // Write message
+            function writeMsg(text,level){	
+			$("#messages").text(text);
+			switch (level) {
+				case 0 :			
+					$("#messages").attr({"class":"alert alert-success"});
+					return;
+				case 1 :			
+					$("#messages").attr({"class":"alert alert-danger"});
+					return;
+				case 2 :			
+					$("#messages").attr({"class":"alert alert-warning"});
+					return;
+				default : 	
+					$("#messages").attr({"class":"alert alert-warning"});
+					return;
+					};
+					
+	}			
+
+
+		// The ajax functions
+		$( document ).ajaxSuccess(function(  ) { 
+  			writeMsg("Successful Request!",0);
+					});
+    	    	
+    	$( document ).ajaxError(function(event, xhr, opt ) {
+  			writeMsg("Error : " + xhr.status + " " + xhr.statusText,1);
+					});
+					
+		$( document ).ajaxStart(function( ) {	
+  			writeMsg("Loading.....",2);
+					});
+ 
+    	 });	
+        });   
+		
+     </script>
+        <div class="container-fluid">
+        <div class="videoWrap" class="col-12 embed-responsive embed-responsive-16by9 ">
+             <video margin="auto"  class="fade-in-video  embed-responsive embed-responsive-16by9" id="bgvid" playsinline autoplay muted loop>
+                     <source src="https://www.ucc.ie/en/media/centralmedia/vidbanners/2_17_YouTube_WebM_1080p.webm" type="video/webm" />
+              </video>
+             
+        </div>
+        <div class="page-header text-center">
+            <h1>Msc Interactive Media</h1>      
+        </div> 
+        <div class="row">
+            <nav id="nav" class=" nav-justified col-md-2 col-lg-2" role="group">
+     	    </nav>
+                
+     	    <section id="sectionOne" class="col-12 col-sm-9 col-md-5 col-lg-7">
+            
+            </section>
+            <section id="sectionTwo" class="col-12 col-sm-3 col-md-5 col-lg-3">
+     	           <p>  </p>
+            </section>
+         </div>
+         <section id="messages"></section>
+        </div>
+     </body>
+     
+     
+<html>
